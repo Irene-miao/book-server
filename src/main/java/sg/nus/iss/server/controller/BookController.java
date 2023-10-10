@@ -21,7 +21,7 @@ import sg.nus.iss.server.service.BookService;
 
 @RestController
 @RequestMapping
-@CrossOrigin(origins="*")
+@CrossOrigin(origins="https://vercel-book-app.vercel.app", maxAge= 3600, allowCredentials = "true")
 public class BookController {
     
 
@@ -29,7 +29,7 @@ public class BookController {
     private BookService bookSvc;
 
     @GetMapping(path="/books")
-   
+   @CrossOrigin(origins="https://vercel-book-app.vercel.app", maxAge= 3600, allowCredentials = "true")
     public ResponseEntity<String> getBooks(@RequestParam(required=false) String character, @RequestParam(required=false) Integer limit, @RequestParam(required=false) Integer offset){
 
         List<Book> books = null;
@@ -64,7 +64,7 @@ public class BookController {
     }
     
       @GetMapping(path="/book")
-  
+  @CrossOrigin(origins="https://vercel-book-app.vercel.app", maxAge= 3600, allowCredentials = "true")
     public ResponseEntity<String> getBookByTitle(@RequestParam(required=false) String title, @RequestParam(required=false) Integer limit, @RequestParam(required=false) Integer offset){
 
         Optional<Book> b = null;
@@ -98,7 +98,7 @@ public class BookController {
     
 
      @GetMapping(path="/review")
-  
+  @CrossOrigin(origins="https://vercel-book-app.vercel.app", maxAge= 3600, allowCredentials = "true")
     public ResponseEntity<String> getBookReview(@RequestParam(required=false) String title){
 
         List<Review> reviews = null;
